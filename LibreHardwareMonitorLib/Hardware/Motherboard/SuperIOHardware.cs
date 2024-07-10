@@ -1923,7 +1923,10 @@ internal sealed class SuperIOHardware : Hardware
                         c.Add(new Control("CPU Fan", 1));
                         c.Add(new Control("CPU Optional Fan", 2));
                         c.Add(new Control("System Fan", 4));
+                        for (int i = 2; i < superIO.Controls.Length; i++)
+                            c.Add(new Control($"System Fan #{i - 1}", i));
 
+                        
                         break;
 
                     case Model.X670E_Valkyrie: //IT8625E
